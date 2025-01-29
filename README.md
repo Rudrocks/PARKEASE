@@ -1,1 +1,3 @@
 # PARKEASE
+
+The Car Parking System is a sophisticated solution leveraging AI and Computer Vision to revolutionize parking management. It offers live vehicle detection, continuous tracking, and real-time monitoring to efficiently manage parking spaces. The system is built with Python and utilizes OpenCV for vehicle detection, Flask for the web interface, and standard web technologies like HTML, CSS, and JavaScript for frontend development. Users can easily interact with the system through a user-friendly web interface. To get started, clone the repository, install the dependencies, and run the Flask application. Contributions are welcome, and the project is licensed under the MIT License. For more details, refer to the LICENSE file in the repository.
