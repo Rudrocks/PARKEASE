@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmation -ParkEase </title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            background: url('lux5.jpg') no-repeat center center/cover;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            color: #fff;
+        }
+
+        .navbar {
+            width: 100%;
+            background-color: #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            box-sizing: border-box;
+        }
+
+        .navbar h1 {
+            color: #ffffff;
+            font-size: 24px;
+            margin: 0;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            color: #ddd;
+        }
+
+        .confirmation-box {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            background: url('tick.jpg') no-repeat center center/cover;
+            width: 90%;
+            max-width: 600px;
+            text-align: center;
+            margin-top: 50px;
+            color: #333;
+        }
+
+        .confirmation-box h2 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .confirmation-box p {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .confirmation-box .details {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .confirmation-box button {
+            width: 80%;
+            padding: 12px;
+            background-color: #5cb85c;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .confirmation-box button:hover {
+            background-color: #4cae4c;
+        }
+
+        @media (max-width: 768px) {
+            .confirmation-box {
+                width: 100%;
+                padding: 20px;
+            }
+
+            .confirmation-box h2 {
+                font-size: 20px;
+            }
+
+            .confirmation-box p {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <h1>ParkEase Services</h1>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/a">About</a></li>
+            <li><a href="/s">Services</a></li>
+            <li><a href="/c">Contact</a></li>
+        </ul>
+    </div>
+
+    <form action="/cd">
+        <div class="confirmation-box">
+            <h2>Booking Confirmation</h2>
+            <p>Your parking spot has been successfully booked!</p>
+            <div id="d"></div>
+            <button id='v'>View Lot</button><br><br><br>
+            <button id='b' onclick="location.href = 'Home.html'">Back</button>
+            <p>"Your perfect spot, one click away"</p>
+        </div>
+    </form>
+
+    <script>
+        window.onload = function() {
+            let carname = localStorage.getItem('carName');
+            let carno = localStorage.getItem('carNo');
+            let allocatedSpot = localStorage.getItem('allocatedSpot');
+            let time = localStorage.getItem('time');
+            let d = document.getElementById('d');
+            d.innerHTML = `<h2>Booking Details</h2><br>
+                           <h3>Name : ${carname}</h3><br>
+                           <h3>Car No : ${carno}</h3><br>
+                           <h3>Parking Lot No : ${allocatedSpot}</h3><br>
+                           <h3>Time : ${time}</h3>`;
+
+            let v = document.getElementById('v');
+            v.onclick = function() {
+                window.location.href = 'Availability.html';
+            };
+        }
+    </script>
+</body>
+</html>

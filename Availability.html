@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parking Lot Availability</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f7f7;
+            background: url('lux5.jpg') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        h1 {
+            color: #f7f7f7;
+        }
+        #parking-lots {
+            width: 90%;
+            text-align: center;
+        }
+        .lot {
+            width: 80px;
+            height: 40px;
+            display: inline-block;
+            margin: 5px;
+            vertical-align: top;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .lot.available {
+            background-color: #5cb85c;
+            color: white;
+        }
+        .lot.occupied {
+            background-color: #d9534f;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Parking Lot Availability</h1>
+    <div id="parking-lots"></div>
+
+    <script>
+        const parkingLotsContainer = document.getElementById('parking-lots');
+        
+        for (let i = 1; i <= 300; i++) {
+            const lot = document.createElement('div');
+            lot.classList.add('lot');
+
+            
+            if (Math.random() > 0.7) {
+                lot.classList.add('occupied');
+                lot.textContent = `Lot ${i} (Occupied)`;
+            } else {
+                lot.classList.add('available');
+                lot.textContent = `Lot ${i} (Available)`;
+            }
+
+            parkingLotsContainer.appendChild(lot);
+        }
+    </script>
+</body>
+</html>

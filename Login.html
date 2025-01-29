@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Car Parking</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            background: url('lux5.jpg') no-repeat center center/cover;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            color: #ddd;
+        }
+        .navbar {
+            width: 100%;
+            background-color: #252f9b;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            box-sizing: border-box;
+        }
+        .navbar h1 {
+            color: #ffffff;
+            font-size: 25px;
+            margin: 0;
+        }
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 24px;
+            transition: color 0.3s ease;
+        }
+        .navbar a:hover {
+            color: #ddd;
+        }
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+        }
+        @media (max-width: 768px) {
+            .navbar ul {
+                flex-direction: column;
+                display: none;
+                width: 100%;
+                background-color:#ddd;
+                padding: 10px 0;
+                text-align: center;
+            }
+            .navbar ul.show {
+                display: flex;
+            }
+            .menu-toggle {
+                display: block;
+            }
+        }
+        .container {
+            background: #faf8f800;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            margin-top: 20px;
+            color: white;
+        }
+        h2 {
+            font-size: 24px;
+            color:#0e0202;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-size: 14px;
+            color:#0e0101;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        input[type="email"],
+        input[type="password"],
+        input[type="number"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #0b0a0af1;
+            border-radius: 8px;
+            font-size: 14px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        input[type="email"]:focus,
+        input[type="password"]:focus,
+        input[type="number"]:focus {
+             border-color: #5cb85c;
+             box-shadow: 0 0 5px rgba(92, 184, 92, 0.5);
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #5cb85c;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #4cae4c;
+        }
+    </style>
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector('.navbar ul');
+            menu.classList.toggle('show');
+        }
+    </script>
+</head>
+<body>
+    <div class="navbar">
+        <h1>ParkEase Services</h1>
+        <span class="menu-toggle" onclick="toggleMenu()">☰</span>
+        <ul>
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+        </ul>
+    </div>
+    <div class="container">
+        <h2>Login to ParkEase</h2>
+        <form action="/d" >
+            <div class="form-group">
+                <label for="ownerName">Email</label>
+                <input type="email" id="ownerName" name="email" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+                <label for="ownerNo">Phone No:</label>
+                <input type="number" id="ownerNo" name="ownerNo" required placeholder="Enter your Phone No">
+            </div>
+            <div class="form-group">
+                <label for="carNo">Password</label>
+                <input type="password" id="carNo" name="passwd" required placeholder="Enter your password">
+            </div>
+            &nbsp<button type="submit">Login</button>
+        </form>
+    </div>
+</body>
+</html>
+

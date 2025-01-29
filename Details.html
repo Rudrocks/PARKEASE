@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Parking Details</title>
+    <style>
+       
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            background: url('lux5.jpg') no-repeat center center/cover;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            color: #fff;
+        }
+
+        .navbar {
+            width: 100%;
+            background-color: #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            box-sizing: border-box;
+        }
+
+        .navbar h1 {
+            color: #ffffff;
+            font-size: 24px;
+            margin: 0;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            color: #ddd;
+        }
+
+        .container {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            margin-top: 20px;
+            color: #333;
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        input[type="text"] {
+            width: 80%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+            margin-bottom: 15px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        input[type="text"]:focus {
+            border-color: #5cb85c;
+            box-shadow: 0 0 5px rgba(92, 184, 92, 0.5);
+        }
+
+        button, #la {
+            width: 80%;
+            padding: 12px;
+            background-color: #5cb85c;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover, #la:hover {
+            background-color: #4cae4c;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="navbar">
+        <h1>Car Parking</h1>
+        <ul>
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="Services.html">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+
+   
+    <div class="container">
+        <h2>Enter Car Details</h2>
+        <form onsubmit="saveCarDetails(event)">
+            <div class="form-group">
+                <label for="carName">Car Owner Name:</label>
+                <input type="text" id="carName" name="carName" required placeholder="Enter the car owner's name">
+            </div>
+            <div class="form-group">
+                <label for="carNo">Car Number:</label>
+                <input type="text" id="carNo" name="carNo" required placeholder="Enter the car number">
+            </div>
+            <div class="form-group">
+                <label for="duration">Duration:</label>
+                <input  id="duration" name="duration" required placeholder="Enter the Duration in hours">
+            </div>
+            <button type="submit" onclick="location.href='/p'">Submit</button><br><br><br>
+            <input type="button" value="Lot Availability" id="la" onclick="window.location.href='Availability.html'">
+        </form>
+    </div>
+    <script>
+       
+        function saveCarDetails(event) {
+            event.preventDefault(); 
+
+            let carName = document.getElementById('carName').value;
+            let carNo = document.getElementById('carNo').value;
+            let duration = document.getElementById('duration').value;
+            if (!carName || !carNo ) {
+                alert('Please fill in all fields');
+                return;
+            }
+            let allocatedSpot = -1;
+            for (let i = 1; i <= 100; i++) {
+                    allocatedSpot = i;
+                    break;
+            }
+
+            if (allocatedSpot === -1) {
+                alert('No available parking spots!');
+                return;
+            }
+            let fare = 0;
+            for(let i=0;i<duration;i++){
+                fare = fare+(i*40);
+            }
+            console.log(fare,carName,carNo,allocatedSpot,duration,new Date().toLocaleString());
+            localStorage.setItem('carName', carName);
+            localStorage.setItem('carNo', carNo);
+            localStorage.setItem('allocatedSpot', allocatedSpot);
+            localStorage.setItem('duration', duration);
+            localStorage.setItem('fare', fare);
+            localStorage.setItem('time',new Date().toLocaleString());
+        }
+    </script>
+</body>
+</html>
